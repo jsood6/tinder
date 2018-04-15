@@ -14,6 +14,7 @@
 		44116ED520816DB10037EB0D /* lab8_TinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44116ED420816DB10037EB0D /* lab8_TinderTests.swift */; };
 		44116EE020816DB10037EB0D /* lab8_TinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44116EDF20816DB10037EB0D /* lab8_TinderUITests.swift */; };
 		44116EEE208171B30037EB0D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44116EED208171B30037EB0D /* CardsViewController.swift */; };
+		44116EF02082F0A70037EB0D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44116EEF2082F0A60037EB0D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		44116EDF20816DB10037EB0D /* lab8_TinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lab8_TinderUITests.swift; sourceTree = "<group>"; };
 		44116EE120816DB10037EB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44116EED208171B30037EB0D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		44116EEF2082F0A60037EB0D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				44116EBF20816DAD0037EB0D /* AppDelegate.swift */,
 				44116EED208171B30037EB0D /* CardsViewController.swift */,
+				44116EEF2082F0A60037EB0D /* ProfileViewController.swift */,
 				44116EC320816DAD0037EB0D /* Main.storyboard */,
 				44116EC620816DB10037EB0D /* Assets.xcassets */,
 				44116EC820816DB10037EB0D /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44116EF02082F0A70037EB0D /* ProfileViewController.swift in Sources */,
 				44116EC020816DAD0037EB0D /* AppDelegate.swift in Sources */,
 				44116EEE208171B30037EB0D /* CardsViewController.swift in Sources */,
 			);

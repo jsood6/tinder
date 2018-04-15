@@ -22,6 +22,8 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cardInitialCenter = profileImageView.center
+        profileImageView.layer.cornerRadius = 10.0
+        profileImageView.clipsToBounds = true
         print("cardInitCenter:", cardInitialCenter)
         
 //        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)) )
@@ -54,35 +56,37 @@ class CardsViewController: UIViewController {
 //            print("drag top of image", location.y)
 //            print("midPoint", midPoint)
             if (translation.x < 0 ){
+                
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-15 * Double.pi / 180))
-                profileImageView.animationDuration = 0.5
+                profileImageView.animationDuration = 5
             } else {
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(15 * Double.pi / 180))
-                profileImageView.animationDuration = 0.5
+                profileImageView.animationDuration = 5
             }
         } else {
             if (translation.x < 0 ){
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(15 * Double.pi / 180))
-                profileImageView.animationDuration = 0.5
+                profileImageView.animationDuration = 5
             } else {
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-15 * Double.pi / 180))
-                profileImageView.animationDuration = 0.5
+                profileImageView.animationDuration = 5
             }
         }
         
-        
-        
-    
+
         if (sender.state == .began){
             print("inside began")
             //let imageView = sender.view as! UIImageView
             profileImageView.isUserInteractionEnabled = true
             //profileImageView.center.y += backgroundView.frame.origin.y
-            cardInitialCenter = profileImageView.center
+            //cardInitialCenter = profileImageView.center
         } else if (sender.state == .changed){
             profileImageView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
+            
         } else if (sender.state == .ended){
-            cardInitialCenter = profileImageView.center
+            //cardInitialCenter = profileImageView.center
+            imgAppearance(translation)
+            
         }
     }
     
@@ -95,13 +99,33 @@ class CardsViewController: UIViewController {
                 self.profileImageView.isHidden = false
             }
             
-        } else {
+        }else if (translation.x < -50){
+            profileImageView.isHidden = true
+            self.profileImageView.center = CGPoint(x: self.cardInitialCenter.x , y: self.cardInitialCenter.y)
+            profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(0 * Double.pi / 180))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                self.profileImageView.isHidden = false
+            }
+            
+        }
+        else {
             self.profileImageView.center = CGPoint(x: cardInitialCenter.x , y: cardInitialCenter.y)
             profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(0 * Double.pi / 180))
         }
     }
     
     
+    @IBAction func didTapImage(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "viewProfileSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        let profile = segue.destination as! ProfileViewController
+        profile.profileImage = profileImageView.image
+        // Pass the selected object to the new view controller.
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -22,12 +22,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="action_buttons" translatesAutoresizingMaskIntoConstraints="NO" id="kQt-af-YQX">
+                                <rect key="frame" x="1" y="500" width="374" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ryan" translatesAutoresizingMaskIntoConstraints="NO" id="NQA-fE-RoK">
-                                <rect key="frame" x="51" y="118" width="273" height="271"/>
+                                <rect key="frame" x="26" y="111" width="323" height="371"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="XgH-GA-WgK" appends="YES" id="MLb-pM-E1G"/>
+                                    <outletCollection property="gestureRecognizers" destination="28j-xE-FlK" appends="YES" id="wxa-rv-qmV"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -38,6 +43,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="xyc-HB-Bhd"/>
                         <outlet property="profileImageView" destination="NQA-fE-RoK" id="The-YE-4EN"/>
+                        <segue destination="lm4-1s-hAA" kind="presentation" identifier="viewProfileSegue" id="WaG-dd-Sx5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -46,12 +52,56 @@
                         <action selector="didPanImage:" destination="BYZ-38-t0r" id="CeZ-15-oNt"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="28j-xE-FlK">
+                    <connections>
+                        <action selector="didTapImage:" destination="BYZ-38-t0r" id="3FI-L9-96p"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="dnl-QA-Zer">
+            <objects>
+                <viewController id="lm4-1s-hAA" customClass="ProfileViewController" customModule="lab8_Tinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MC6-ed-zMb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nav_bar2" translatesAutoresizingMaskIntoConstraints="NO" id="sTt-wG-2OG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cHr-Kl-CZG" appends="YES" id="SKz-v9-PhK"/>
+                                </connections>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KX-u5-d2C">
+                                <rect key="frame" x="28" y="127" width="318" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bCA-99-X5S"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="5KX-u5-d2C" id="OCG-mb-WPY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vf2-mL-Yxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cHr-Kl-CZG">
+                    <connections>
+                        <action selector="didTapNavBar:" destination="lm4-1s-hAA" id="Q8g-47-Yw7"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1896.8" y="133.5832083958021"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="action_buttons" width="320" height="108"/>
         <image name="nav_bar" width="320" height="65"/>
+        <image name="nav_bar2" width="320" height="65"/>
         <image name="ryan" width="449" height="514"/>
     </resources>
 </document>
