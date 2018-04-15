@@ -50,6 +50,7 @@ class CardsViewController: UIViewController {
 //        print("translation", translation)
 //        print("location in didPanImage", location)
         //don't know how to check if user touched top or bottom half of the imageView(check step 2)
+
         let midPoint = (profileImageView.frame.height / 2)
         
         if (location.y < midPoint){
@@ -71,6 +72,7 @@ class CardsViewController: UIViewController {
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-15 * Double.pi / 180))
                 profileImageView.animationDuration = 5
             }
+
         }
         
 
