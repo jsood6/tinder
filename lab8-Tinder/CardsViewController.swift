@@ -31,7 +31,10 @@ class CardsViewController: UIViewController {
         //don't know how to check if user touched top or bottom half of the imageView(check step 2)
         if(profileImageView.center.x > 180)
         {
-            if(profileImageView.center.x > 230)
+            profileImageView.bo
+            print(profileImageView.isAnimating)
+            
+            /*if(profileImageView.center.x > 230)
             {
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(30 * M_PI / 180))
                 
@@ -50,10 +53,10 @@ class CardsViewController: UIViewController {
                     frame.origin.x = 0;
                     view.frame = frame;
                     }completion:^(BOOL finished) {}];*/
-            }
-            else{
+            }*/
+            //else{
                 profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(30 * M_PI / 180))
-            }
+            //}*/
         }
         else{
             profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-30 * M_PI / 180))
